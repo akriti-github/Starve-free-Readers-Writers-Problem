@@ -1,11 +1,12 @@
 # Starve-Free-Reader-Writer-Problem
+By: Akriti Jain (20115008)
 
 The Reader-Writer Problem is designed such that while multiple readers can read the shared resource simultaneously, only one writer will be allowed to modify the shared resource at any given time. The two most common approaches to solve this problem using synchromization are:
 
 1) Writers Starve (Readers are given priority)
 2) Readers Starve (Writers are given priority)
 
-Both these solutions are not ideal and do not tackle the problem of starvation efficiently. I have attempted to suggest the pseudo code for a starva free solution where both readers and writers have equal priority.
+Both these solutions are not ideal and do not tackle the problem of starvation efficiently. I have attempted to suggest the pseudo code for a starve free solution where both readers and writers have equal priority.
 
 ## Explanation : 
 Since multiple readers can enter the Critical Section together, we need a variable "readCnt" to maintain count of number of readerswanted to access the shared resource. 
