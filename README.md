@@ -8,8 +8,8 @@ The Reader-Writer Problem is designed such that while multiple readers can read 
 Both these solutions are not ideal and do not tackle the problem of starvation efficiently. I have attempted to suggest the pseudo code for a starva free solution where both readers and writers have equal priority.
 
 ## Explanation : 
- Since multiple readers can enter the Critical Section together, we need a variable "readCnt" to maintain count of number of readerswanted to access the shared resource. 
- From the code studied during lecture class:
+Since multiple readers can enter the Critical Section together, we need a variable "readCnt" to maintain count of number of readerswanted to access the shared resource. 
+From the code studied during lecture class:
  ```
 Reader Process :
 wait(mutex);
@@ -34,3 +34,6 @@ writing is performed
 signal(wrt);
 
 ```
+Here, we observe that writers starve, because till the time readers have exclusive access to the shared resource, the writers will have to wait indefinitely. Technically, once all the existing readers have used the resource, they should allow the waiting writer (if any) to acquire exclusive access of the critical section.
+
+The proposed solution makes use of 2 semaphores - "aquiredResource" and "accessResource".
